@@ -7,5 +7,4 @@ namespace UserService.Extensions;
 
 public class GlobalExceptionMiddleware
 {
-    
 }
