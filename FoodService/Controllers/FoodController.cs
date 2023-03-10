@@ -1,3 +1,5 @@
+using System.Text.Json;
+using FoodService.MessageBrokerLibrary;
 using FoodService.Models;
 using FoodService.Models.Customs;
 using FoodService.Repositories;
@@ -11,10 +13,12 @@ namespace FoodService.Controllers;
 public class FoodController : ControllerBase
 {
     private readonly IFoodRepository _foodRepository;
+    private readonly IPublisher _publisher;
 
-    public FoodController(IFoodRepository foodRepository)
+    public FoodController(IFoodRepository foodRepository, IPublisher publisher)
     {
         _foodRepository = foodRepository;
+        _publisher = publisher;
     }
 
     [HttpGet("GetAll")]
@@ -74,6 +78,7 @@ public class FoodController : ControllerBase
 
         if (string.IsNullOrEmpty(model.Id))
         {
+            _publisher.Publish(JsonSerializer.Serialize(food), "order.food", null);
             return StatusCode(201);
         }
         else
