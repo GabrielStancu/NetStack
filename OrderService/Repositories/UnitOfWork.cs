@@ -19,4 +19,9 @@ public class UnitOfWork : IUnitOfWork
     {
         return await _context.SaveChangesAsync() > 0;
     }
+
+    public bool Save()
+    {
+        return _context.SaveChanges() > 0;
+    }
 }

@@ -6,4 +6,5 @@ public interface IUnitOfWork
     IOrderDetailRepository OrderDetailRepository { get; }
     IFoodViewModelRepository FoodViewModelRepository { get; }
     Task<bool> SaveAsync();
+    bool Save();
 }
