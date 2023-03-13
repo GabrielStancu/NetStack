@@ -18,3 +18,6 @@ The user service is responsible for the users (username and passwords) related t
 The order service is responsible for the orders placed through the system.
 - Uses SqlServer as databse
 - Acts as a subscriber in the publisher-subscriber pattern using RabbitMQ queues
+
+The product service is responsible for scheduling jobs for the products. (It only logs different messages for each type of job scheduled).
+- Uses Hangfire for job scheduling and execution (see the ProductsController)
