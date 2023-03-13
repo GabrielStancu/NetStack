@@ -8,8 +8,13 @@ The food service is responsible for food & food categories logic.
 - Uses MongoDb as database
 - Shows how to register settings (configs) as classes and register them in the dependency injection container (Data namespace)
 - Shows how to upload a file in a MongoDb database (FoodController.cs)
+- Acts as a publisher in the publisher-subscriber pattern usign RabbitMQ queues
 
 The user service is responsible for the users (username and passwords) related to the customer info.
 - Uses MySQL as database
 - Shows how to use fluent API for model configuration (instead of using annotations - Configurations namespace)
 - Shows how to implement (Repositories namespace) and use (Controllers) the Unit of Work design pattern
+
+The order service is responsible for the orders placed through the system.
+- Uses SqlServer as databse
+- Acts as a subscriber in the publisher-subscriber pattern using RabbitMQ queues
