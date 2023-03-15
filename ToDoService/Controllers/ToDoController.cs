@@ -1,8 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ToDoService.Extensions;
+using ToDoService.Models;
 using ToDoService.Repositories;
 
 namespace ToDoService.Controllers;
@@ -12,10 +10,12 @@ namespace ToDoService.Controllers;
 public class ToDoController : ControllerBase
 {
     private readonly IToDoRepository _repository;
+    private readonly IServiceScopeFactory _serviceScopeFactory;
 
-    public ToDoController(IToDoRepository repository)
+    public ToDoController(IToDoRepository repository, IServiceScopeFactory serviceScopeFactory)
     {
         _repository = repository;
+        _serviceScopeFactory = serviceScopeFactory;
     }
 
     public async Task<IActionResult> SetToDosAsDoneSequentially()
@@ -28,5 +28,29 @@ public class ToDoController : ControllerBase
         }
 
         return Ok();
+    }
+
+    public async Task<IActionResult> SetToDosAsDoneInParallel()
+    {
+        var todos = await _repository.GetToDos();
+        var taskList = new List<Task>(todos.Count);
+
+        foreach(var todo in todos)
+        {
+            var markToDoDoneTask = MarkToDoDone(todo);
+            taskList.Add(markToDoDoneTask);
+        }
+
+        await Task.WhenAll(taskList);
+
+        return Ok();
+    }
+
+    // Create a new instance of the repository within a new scope
+    // Wrap the instance into the func object that will use it as callback to set the todo as done
+    private async Task MarkToDoDone(ToDo todo)
+    {
+        var markToDo = async (IToDoRepository toDoRepository) => await toDoRepository.MarkTodoDone(todo.Id);
+        await _serviceScopeFactory.DoAsync(markToDo);
     }
 }
