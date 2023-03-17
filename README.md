@@ -21,3 +21,7 @@ The order service is responsible for the orders placed through the system.
 
 The product service is responsible for scheduling jobs for the products. (It only logs different messages for each type of job scheduled).
 - Uses Hangfire for job scheduling and execution (see the ProductsController)
+
+The ToDo service is responsible for fetching and marking todo items from the database.
+- Uses SQL Server and EF Core
+- Updates multiple items in the database concurrently, by creating multiple scopes within the original request
