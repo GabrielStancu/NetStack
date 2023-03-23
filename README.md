@@ -26,12 +26,12 @@ https://medium.com/@mk.muhammadkhoirudin/microservice-implementation-using-asp-n
 - Responsible for scheduling jobs for the products. (It only logs different messages for each type of job scheduled).
 - Uses Hangfire for job scheduling and execution (see the ProductsController)
 
-## ToDo Service 
+## To Do Service 
 - Responsible for fetching and marking todo items from the database.
 - Uses SQL Server and EF Core
 - Updates multiple items in the database concurrently, by creating multiple scopes within the original request
 
-## FeatureService
+## Feature Service
 - Responsible for simulating various features
 - Displays multiple dependency injection features & use cases:
   * Register multiple implementations for an interface and resolve the dependency conditionally (see **ServiceFactory**, **IService**, **Service1**, **Service2**)
