@@ -23,7 +23,7 @@ public class DocumentsController : ControllerBase
     {
         document ??= new { Id = 1, Name = "Name 001" };
 
-        await _repository.AddOrUpdate(document);
+        await _repository.AddOrUpdate<dynamic>(document);
 
         return Ok();
     }
@@ -37,17 +37,15 @@ public class DocumentsController : ControllerBase
             new { id = 3, name = "Name 003" }
         };
 
-        await _repository.AddOrUpdateBulk(documents);
+        await _repository.AddOrUpdateBulk<dynamic>(documents);
 
         return Ok();
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetSingle(string id)
+    public async Task<IActionResult> GetSingle(int id)
     {
-        id ??= "1";
-
-        var document = await _repository.Get<dynamic>(id);
+        var document = await _repository.Get<dynamic>(id.ToString());
 
         if (document is null)
             return NotFound();
@@ -79,11 +77,9 @@ public class DocumentsController : ControllerBase
     }
 
     [HttpPost("remove/{id}")]
-    public async Task<IActionResult> Remove(string id)
+    public async Task<IActionResult> Remove(int id)
     {
-        id ??= "1";
-
-        await _repository.Remove<dynamic>(id);
+        await _repository.Remove<dynamic>(id.ToString());
 
         return Ok();
     }

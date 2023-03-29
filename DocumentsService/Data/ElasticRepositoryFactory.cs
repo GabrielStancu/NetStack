@@ -1,4 +1,5 @@
 using DocumentsService.Configurations;
+using Microsoft.Extensions.Options;
 using Nest;
 
 namespace DocumentsService.Data;
@@ -7,9 +8,9 @@ public class ElasticRepositoryFactory : IElasticRepositoryFactory
 {
     private readonly ElasticSearchConfiguration _config;
 
-    public ElasticRepositoryFactory(ElasticSearchConfiguration config)
+    public ElasticRepositoryFactory(IOptions<ElasticSearchConfiguration> options)
     {
-        _config = config;
+        _config = options.Value;
     }
 
     public IElasticSearchRepository Create(string indexName)
