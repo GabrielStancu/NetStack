@@ -46,3 +46,9 @@ https://medium.com/@mk.muhammadkhoirudin/microservice-implementation-using-asp-n
 - Adapted after Ravindra Devrani's tutorial on Medium.com: https://ravindradevrani.medium.com/net-7-jwt-authentication-and-role-based-authorization-5e5e56979b67
 - Shows how to configure an Identity database in EF Core
 - Allows resources acessing based on authentication and authorization (role-based)
+
+## Documents Service
+- Responsible for managing documents
+- Adapted after Yaman Nasser's tutorial on Medium.com: https://yamannasser.medium.com/simplifying-elasticsearch-crud-with-net-core-a-step-by-step-guide-25c86a12ae15
+- Shows how to build an interface over Elastic Search and perform CRUD operations on documents (see Data.ElasticSearchRepository)
+- Another approach for configurations binding (see usage in Data.ElasticRepositoryFactory)
