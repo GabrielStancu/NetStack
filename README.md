@@ -54,5 +54,12 @@ https://medium.com/@mk.muhammadkhoirudin/microservice-implementation-using-asp-n
 - Another approach for configurations binding (see usage in Data.ElasticRepositoryFactory)
 
 ## Send Service
-- Shows good prfactices and how ti use the HttpClient & HttpClientFactory (see the SendController)
+- Shows good prfactices and how to use the HttpClient & HttpClientFactory (see the SendController)
 - Adapted after bytedev's tutorial on Medium.com: https://bytedev.medium.com/net-core-httpclient-best-practices-4c1b20e32c6
+
+## Participation Service
+- Shows how to map database relationships (1-N, N-N, 1-1) in EF Core
+- Adapted after Henrique Siebert Domareski's tutorials on Medium.com: 
+  * General mappings https://henriquesd.medium.com/entity-framework-core-relationships-with-fluent-api-8f741c57b881
+  * N-N mapping with no join table in EF Core 5+: https://henriquesd.medium.com/entity-framework-core-5-0-many-to-many-relationships-52c6c8b07b6e
+- See the Program.cs comments for additional details on how each type of mapping works
