@@ -52,3 +52,7 @@ https://medium.com/@mk.muhammadkhoirudin/microservice-implementation-using-asp-n
 - Adapted after Yaman Nasser's tutorial on Medium.com: https://yamannasser.medium.com/simplifying-elasticsearch-crud-with-net-core-a-step-by-step-guide-25c86a12ae15
 - Shows how to build an interface over Elastic Search and perform CRUD operations on documents (see Data.ElasticSearchRepository)
 - Another approach for configurations binding (see usage in Data.ElasticRepositoryFactory)
+
+## Send Service
+- Shows good prfactices and how ti use the HttpClient & HttpClientFactory (see the SendController)
+- Adapted after bytedev's tutorial on Medium.com: https://bytedev.medium.com/net-core-httpclient-best-practices-4c1b20e32c6
