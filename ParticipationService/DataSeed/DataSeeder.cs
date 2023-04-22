@@ -18,6 +18,7 @@ public class DataSeeder
         OneToManyFullyDefinedRelationships();
         ManyToManyRelationship();
         OneToOneRelationship();
+        ManyToManyNoJoinRelationship();
     }
 
     private void OneToManyRelationship()
@@ -85,6 +86,26 @@ public class DataSeeder
 
         var authorBiography = new Biography { AuthorId = author.Id, PlaceOfBirth = "Palo Alto - California" };
         _context.Add(authorBiography);
+        _context.SaveChanges();
+    }
+
+    private void ManyToManyNoJoinRelationship()
+    {
+        var project1 = new Project { Name = "NVision" };
+        var project2 = new Project { Name = "ByteFin" };
+
+        _context.AddRange(
+            new Contributer
+            {
+                Name = "Gabriel Stancu",
+                Projects = new List<Project> { project1, project2 }
+            },
+            new Contributer
+            {
+                Name = "Dev Devson",
+                Projects = new List<Project> { project2 }
+            });
+
         _context.SaveChanges();
     }
 }

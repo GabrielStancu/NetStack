@@ -9,8 +9,11 @@ public class AppDbContext : DbContext
     {
     }
 
-    public DbSet<Customer>? Customers { get; set; }
-    public DbSet<Order>? Orders { get; set; }
+    public DbSet<Customer>? Customer { get; set; }
+    public DbSet<Order>? Order { get; set; }
+
+    public DbSet<Contributer>? Contributer { get; set; }
+    public DbSet<Project>? Project { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
