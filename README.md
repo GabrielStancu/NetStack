@@ -71,3 +71,8 @@ https://medium.com/@mk.muhammadkhoirudin/microservice-implementation-using-asp-n
 - Shows how to integrate Sqlite database (see Program.cs)
 - Shows how to override service injection with Decorate extension method (see Program and CacheService)
 - Shows how to use Bogus to generate sane product data (see DbContextExtensions)
+
+## Product Cache Service
+- Responsible for sending email for the orders placed (simulated by writing to the console)
+- Adapted after Keivan Damirchi's tutorial on Medium.com: https://medium.com/@KeivanDamirchi/using-channels-in-asp-net-core-9728bb78345e
+- Shows how to use channels to send data asynchronously between different components of the system (see Services -> PlaceOrder, OrderProcessor, EmailSender)
