@@ -59,7 +59,15 @@ https://medium.com/@mk.muhammadkhoirudin/microservice-implementation-using-asp-n
 
 ## Participation Service
 - Shows how to map database relationships (1-N, N-N, 1-1) in EF Core
-- Adapted after Henrique Siebert Domareski's tutorials on Medium.com: 
+- Adapted after Henrique Siebert Domareski's tutorial on Medium.com: 
   * General mappings https://henriquesd.medium.com/entity-framework-core-relationships-with-fluent-api-8f741c57b881
   * N-N mapping with no join table in EF Core 5+: https://henriquesd.medium.com/entity-framework-core-5-0-many-to-many-relationships-52c6c8b07b6e
 - See the Program.cs comments for additional details on how each type of mapping works
+
+## Product Cache Service
+- Responsible for fetching a list of products
+- Adapted after Juldhais Hengkyawan's tutorial on Medium.com: https://juldhais.net/implementing-in-memory-caching-using-decorator-pattern-in-asp-net-core-10f84dcae70b
+- Shows how to read data from memory cache at second call, instead of directly from the database (see CacheProductService)
+- Shows how to integrate Sqlite database (see Program.cs)
+- Shows how to override service injection with Decorate extension method (see Program and CacheService)
+- Shows how to use Bogus to generate sane product data (see DbContextExtensions)
